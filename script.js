@@ -9,6 +9,7 @@ function searchArticles() {
 
         if (title.includes(searchInput) || content.includes(searchInput)) {
             article.style.display = 'block';
+            article.classList.add('fadeIn');
         } else {
             article.style.display = 'none';
         }
@@ -22,6 +23,15 @@ window.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             article.style.opacity = '1';
             article.style.transform = 'translateY(0)';
-        }, index * 100); // Stagger the animations
+        }, index * 200); // Stagger the animations
     });
 });
+
+// Smooth Scroll to Top Functionality (Optional)
+document.querySelector("#searchInput").addEventListener("focus", function () {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+            
