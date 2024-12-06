@@ -24,7 +24,20 @@
             cube = new THREE.Mesh(geometry, material);
             scene.add(cube);
 
+            const light = new THREE.PointLight(0xFFFFFF, 1, 100);
+            light.position.set(10, 10, 10);
+            scene.add(light);
+            
+
             camera.position.z = 5;
+           
+            gsap.to(cube.rotation, {
+            duration: 1,
+             x: "+=2",
+             y: "+=2",
+             ease: "power2.inOut",
+            });
+            
 
             animate();
         }
